@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhruva Devaraaj</title>
+    <meta name="description" content="Dhruva Devaraaj is a fourth-year Honours Economics student at UBC, with minors in Computer Science and Mathematics.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --colors--text: #1a1a1a;
+            --colors--text-muted: #666666;
+            --colors--background: #ffffff;
+            --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+        }
+
+        .u-mode-invert {
+            --colors--text: #e8e8e8;
+            --colors--text-muted: #a0a0a0;
+            --colors--background: #1a1a1a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--colors--text);
+            background-color: var(--colors--background);
+            line-height: 1.6;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        /* Link styles - bold and underlined */
+        a {
+            color: var(--colors--text);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration-thickness: 2px;
+        }
+
+        ::selection {
+            background-color: rgba(0, 100, 255, 0.26);
+            color: inherit;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Header */
+        .header {
+            padding: 2.5rem 0 2rem;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-name-link {
+            text-decoration: none;
+        }
+
+        .header-name {
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--colors--text);
+            letter-spacing: -0.01em;
+        }
+
+        /* Dark mode toggle */
+        .toggle-switch {
+            position: relative;
+        }
+
+        .toggle-checkbox {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .toggle-label {
+            display: block;
+            width: 38px;
+            height: 18px;
+            background-color: var(--colors--text-muted);
+            border-radius: 18px;
+            cursor: pointer;
+            position: relative;
+            transition: background-color 0.2s;
+        }
+
+        .toggle-label::before {
+            content: "";
+            position: absolute;
+            height: 14px;
+            width: 14px;
+            left: 2px;
+            bottom: 2px;
+            background-color: var(--colors--background);
+            border-radius: 50%;
+            transition: transform 0.2s;
+        }
+
+        .toggle-checkbox:checked + .toggle-label::before {
+            transform: translateX(20px);
+        }
+
+        /* Main content */
+        .page-main {
+            padding-bottom: 4rem;
+        }
+
+        /* Bio section */
+        .bio-section p {
+            color: var(--colors--text);
+        }
+
+        /* Sections */
+        section {
+            margin-top: 1.75rem;
+        }
+
+        section h2 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--colors--text);
+            margin-bottom: 0.5rem;
+        }
+
+        /* Bullet list */
+        .bullet-list {
+            list-style: none;
+        }
+
+        .bullet-list-item {
+            padding-left: 0.7em;
+            margin-bottom: 0.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+        }
+
+        .bullet-list-item::before {
+            content: "•";
+            font-size: 1em;
+            margin-right: 0.3em;
+            margin-left: -0.7em;
+            display: inline-block;
+            font-weight: 400;
+        }
+
+        .bullet-list-link {
+            /* Inherits bold + underline from base a styles */
+        }
+
+        .bullet-list-text {
+            font-weight: 600;
+        }
+
+        .bullet-list-meta {
+            color: var(--colors--text-muted);
+            margin-left: 0.35em;
+            font-size: 0.95em;
+            font-weight: 400;
+        }
+
+        /* Item description (for experience items) */
+        .item-description {
+            width: 100%;
+            color: var(--colors--text-muted);
+            font-size: 0.9rem;
+            margin-top: 0.15rem;
+            padding-left: 0;
+            font-weight: 400;
+        }
+
+        /* Skills section */
+        .skills-text {
+            color: var(--colors--text);
+            padding-left: 0.7em;
+        }
+
+        .skills-text::before {
+            content: "•";
+            font-size: 1em;
+            margin-right: 0.3em;
+            margin-left: -0.7em;
+            display: inline-block;
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 3rem;
+            padding-bottom: 2rem;
+        }
+
+        footer .bullet-list-item {
+            color: var(--colors--text-muted);
+        }
+
+        footer .bullet-list-link {
+            color: var(--colors--text-muted);
+        }
+
+        footer .bullet-list-link:hover {
+            color: var(--colors--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            html {
+                font-size: 16px;
+            }
+
+            .header {
+                padding: 2rem 0 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="container">
+                <a href="/" class="header-name-link">
+                    <h1 class="header-name">Dhruva Devaraaj</h1>
+                </a>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="color-mode" class="toggle-checkbox">
+                    <label for="color-mode" class="toggle-label"></label>
+                </div>
+            </div>
+        </header>
+
+        <main class="page-main">
+            <article>
+                <div class="container">
+                    <!-- ============================================
+                         BIO SECTION
+                         ============================================ -->
+                    <section class="bio-section">
+                        <p>people advocate for the bold leap, the breakthrough, the prison break of a definitive conclusion. but i am interested in the gentle action. the staying. sitting with the machinery and the markets and the math until they decide, very much thank you, that they are ready to speak to us. what i love about this work is the failure of it. the dead ends that teach you the shape of the problem. you go back to square one and square one looks completely different now. that is the real progress.</p>
+                    </section>
+
+                    <!-- ============================================
+                         EXPERIENCE SECTION
+                         ============================================ -->
+                    <section>
+                        <h2>Experience</h2>
+                        <ul class="bullet-list">
+                            <li class="bullet-list-item">
+                                <span class="bullet-list-text">Research Assistant</span>
+                                <span class="bullet-list-meta">(Nov 2025–Present)</span>
+                                <span class="item-description"><a href="https://tisharagarg.github.io/" target="_blank">Dr. Tishara Garg</a> (Princeton), <a href="https://www.edward-wiles.com/" target="_blank">Dr. Edward Wiles</a> (Harvard)</span>
+                            </li>
+                            <li class="bullet-list-item">
+                                <span class="bullet-list-text">Research Assistant</span>
+                                <span class="bullet-list-meta">(Sep 2025–Present)</span>
+                                <span class="item-description"><a href="https://allard.ubc.ca/about-us/our-people/wei-cui" target="_blank">Dr. Wei Cui</a> (<a href="https://allard.ubc.ca/" target="_blank">Allard School of Law</a>)</span>
+                            </li>
+                            <li class="bullet-list-item">
+                                <span class="bullet-list-text">Research Assistant</span>
+                                <span class="bullet-list-meta">(Jun 2025–Oct 2025)</span>
+                                <span class="item-description"><a href="https://sites.google.com/view/ekaterinakhmelnitskaya/home" target="_blank">Dr. Ekaterina Khmelnitskaya</a> (<a href="https://www.sauder.ubc.ca/" target="_blank">Sauder School of Business</a>)</span>
+                            </li>
+                            <li class="bullet-list-item">
+                                <span class="bullet-list-text">Senior Research Assistant</span>
+                                <span class="bullet-list-meta">(May 2025–Aug 2025)</span>
+                                <span class="item-description"><a href="https://economics.ubc.ca/profile/michael-peters/" target="_blank">Dr. Michael Peters</a> (<a href="https://economics.ubc.ca/" target="_blank">Vancouver School of Economics</a>)</span>
+                            </li>
+                            <li class="bullet-list-item">
+                                <span class="bullet-list-text">Mathematics Teaching Assistant</span>
+                                <span class="bullet-list-meta">(Aug 2024–Present)</span>
+                                <span class="item-description"><a href="https://www.math.ubc.ca/" target="_blank">UBC Math</a></span>
+                            </li>
+                            <li class="bullet-list-item">
+                                <span class="bullet-list-text">Software Developer Intern</span>
+                                <span class="bullet-list-meta">(May 2023–Jul 2023)</span>
+                                <span class="item-description"><a href="https://www.icliniq.com/" target="_blank">iCliniq</a></span>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- ============================================
+                         SKILLS SECTION
+                         ============================================ -->
+                    <section>
+                        <h2>Skills</h2>
+                        <p class="skills-text">Java, Python, R, Stata, Julia, C/C++, SQL, GitHub</p>
+                    </section>
+
+                    <!-- ============================================
+                         PROFILES SECTION
+                         ============================================ -->
+                    <section>
+                        <h2>Profiles</h2>
+                        <ul class="bullet-list">
+                            <li class="bullet-list-item">
+                                <a href="https://github.com/dhruva36" target="_blank" class="bullet-list-link">GitHub</a>
+                            </li>
+                            <li class="bullet-list-item">
+                                <a href="https://linkedin.com/in/dhruvdev" target="_blank" class="bullet-list-link">LinkedIn</a>
+                            </li>
+                        </ul>
+                    </section>
+
+                    <!-- ============================================
+                         FOOTER - Contact info
+                         ============================================ -->
+                    <footer>
+                        <ul class="bullet-list">
+                            <li class="bullet-list-item">
+                                <a href="mailto:dhruvadevaraaj@gmail.com" class="bullet-list-link">dhruvadevaraaj@gmail.com</a>
+                            </li>
+                        </ul>
+                    </footer>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    <script>
+        // Dark mode toggle
+        (function() {
+            function setColorMode(isDark, savePreference = true) {
+                document.documentElement.classList.toggle('u-mode-invert', isDark);
+                const checkbox = document.getElementById('color-mode');
+                if (checkbox) {
+                    checkbox.checked = isDark;
+                }
+                if (savePreference) {
+                    localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+                }
+            }
+
+            const savedMode = localStorage.getItem('darkMode');
+            let prefersDark;
+            let usingOSPreference = false;
+
+            if (savedMode !== null) {
+                prefersDark = savedMode === 'true';
+            } else {
+                const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                prefersDark = prefersColorScheme.matches;
+                usingOSPreference = true;
+            }
+
+            setColorMode(prefersDark, !usingOSPreference);
+
+            window.addEventListener('DOMContentLoaded', function() {
+                const checkbox = document.getElementById('color-mode');
+                if (checkbox) {
+                    checkbox.checked = document.documentElement.classList.contains('u-mode-invert');
+                    checkbox.addEventListener('change', function() {
+                        usingOSPreference = false;
+                        setColorMode(this.checked);
+                    });
+                }
+
+                const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                prefersColorScheme.addEventListener('change', (e) => {
+                    if (usingOSPreference) {
+                        setColorMode(e.matches, false);
+                    }
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
