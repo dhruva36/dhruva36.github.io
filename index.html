@@ -11,15 +11,17 @@
     <style>
         :root {
             --colors--text: #1a1a1a;
-            --colors--text-muted: #666666;
-            --colors--background: #ffffff;
+            --colors--text-muted: #6b6b6b;
+            --colors--background: #fafaf8;
+            --colors--border: #e2e0dc;
             --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
         }
 
         .u-mode-invert {
-            --colors--text: #e8e8e8;
-            --colors--text-muted: #a0a0a0;
-            --colors--background: #1a1a1a;
+            --colors--text: #e4e2de;
+            --colors--text-muted: #9a9890;
+            --colors--background: #161615;
+            --colors--border: #2c2b28;
         }
 
         * {
@@ -37,14 +39,18 @@
             color: var(--colors--text);
             background-color: var(--colors--background);
             line-height: 1.6;
-            transition: background-color 0.2s, color 0.2s;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Link styles - bold and underlined */
+        /* Link styles */
         a {
             color: var(--colors--text);
             text-decoration: underline;
+            text-decoration-thickness: 1px;
+            text-underline-offset: 0.15em;
             font-weight: 600;
+            transition: text-decoration-thickness 0.15s ease;
         }
 
         a:hover {
@@ -52,7 +58,7 @@
         }
 
         ::selection {
-            background-color: rgba(0, 100, 255, 0.26);
+            background-color: rgba(0, 100, 255, 0.2);
             color: inherit;
         }
 
@@ -61,14 +67,14 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 620px;
             margin: 0 auto;
             padding: 0 1.5rem;
         }
 
         /* Header */
         .header {
-            padding: 2.5rem 0 2rem;
+            padding: 3.5rem 0 2.5rem;
         }
 
         .header .container {
@@ -82,10 +88,10 @@
         }
 
         .header-name {
-            font-size: 1.35rem;
+            font-size: 1.4rem;
             font-weight: 600;
             color: var(--colors--text);
-            letter-spacing: -0.01em;
+            letter-spacing: -0.02em;
         }
 
         /* Dark mode toggle */
@@ -102,13 +108,18 @@
 
         .toggle-label {
             display: block;
-            width: 38px;
+            width: 36px;
             height: 18px;
             background-color: var(--colors--text-muted);
             border-radius: 18px;
             cursor: pointer;
             position: relative;
-            transition: background-color 0.2s;
+            transition: background-color 0.3s ease;
+            opacity: 0.5;
+        }
+
+        .toggle-label:hover {
+            opacity: 0.8;
         }
 
         .toggle-label::before {
@@ -120,11 +131,11 @@
             bottom: 2px;
             background-color: var(--colors--background);
             border-radius: 50%;
-            transition: transform 0.2s;
+            transition: transform 0.3s ease, background-color 0.3s ease;
         }
 
         .toggle-checkbox:checked + .toggle-label::before {
-            transform: translateX(20px);
+            transform: translateX(18px);
         }
 
         /* Main content */
@@ -135,18 +146,21 @@
         /* Bio section */
         .bio-section p {
             color: var(--colors--text);
+            line-height: 1.75;
         }
 
         /* Sections */
         section {
-            margin-top: 1.75rem;
+            margin-top: 2.25rem;
         }
 
         section h2 {
-            font-size: 1rem;
+            font-size: 0.78rem;
             font-weight: 600;
-            color: var(--colors--text);
-            margin-bottom: 0.5rem;
+            color: var(--colors--text-muted);
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
         }
 
         /* Bullet list */
@@ -155,20 +169,15 @@
         }
 
         .bullet-list-item {
-            padding-left: 0.7em;
-            margin-bottom: 0.25rem;
+            padding-left: 0;
+            margin-bottom: 0.5rem;
             display: flex;
             flex-wrap: wrap;
             align-items: baseline;
         }
 
         .bullet-list-item::before {
-            content: "•";
-            font-size: 1em;
-            margin-right: 0.3em;
-            margin-left: -0.7em;
-            display: inline-block;
-            font-weight: 400;
+            content: none;
         }
 
         .bullet-list-link {
@@ -181,8 +190,8 @@
 
         .bullet-list-meta {
             color: var(--colors--text-muted);
-            margin-left: 0.35em;
-            font-size: 0.95em;
+            margin-left: 0.4em;
+            font-size: 0.9em;
             font-weight: 400;
         }
 
@@ -190,30 +199,25 @@
         .item-description {
             width: 100%;
             color: var(--colors--text-muted);
-            font-size: 0.9rem;
-            margin-top: 0.15rem;
+            font-size: 0.88rem;
+            margin-top: 0.1rem;
             padding-left: 0;
             font-weight: 400;
+            line-height: 1.5;
         }
 
         /* Skills section */
         .skills-text {
-            color: var(--colors--text);
-            padding-left: 0.7em;
-        }
-
-        .skills-text::before {
-            content: "•";
-            font-size: 1em;
-            margin-right: 0.3em;
-            margin-left: -0.7em;
-            display: inline-block;
+            color: var(--colors--text-muted);
+            font-size: 0.95rem;
         }
 
         /* Footer */
         footer {
             margin-top: 3rem;
-            padding-bottom: 2rem;
+            padding-top: 1.5rem;
+            padding-bottom: 2.5rem;
+            border-top: 1px solid var(--colors--border);
         }
 
         footer .bullet-list-item {
@@ -222,6 +226,7 @@
 
         footer .bullet-list-link {
             color: var(--colors--text-muted);
+            font-weight: 400;
         }
 
         footer .bullet-list-link:hover {
@@ -235,7 +240,7 @@
             }
 
             .header {
-                padding: 2rem 0 1.5rem;
+                padding: 2.5rem 0 2rem;
             }
         }
     </style>
@@ -261,7 +266,7 @@
                          BIO SECTION
                          ============================================ -->
                     <section class="bio-section">
-                        <p>people advocate for the bold leap, the breakthrough, the prison break of a definitive conclusion. but i am interested in the gentle action. the staying. sitting with the machinery and the markets and the math until they decide, very much thank you, that they are ready to speak to us. what i love about this work is the failure of it. the dead ends that teach you the shape of the problem. you go back to square one and square one looks completely different now. that is the real progress.</p>
+                        <p>I study what I find interesting. Right now, that means the intersection of culture and trade, the political economy of AI — how it disrupts signals of authenticity, skill, and effort, and what it costs to reshape our systems around these disruptions — and the relevance of scaling laws.</p>
                     </section>
 
                     <!-- ============================================
@@ -273,7 +278,7 @@
                             <li class="bullet-list-item">
                                 <span class="bullet-list-text">Research Assistant</span>
                                 <span class="bullet-list-meta">(Nov 2025–Present)</span>
-                                <span class="item-description"><a href="https://tisharagarg.github.io/" target="_blank">Dr. Tishara Garg</a> (Princeton), <a href="https://www.edward-wiles.com/" target="_blank">Dr. Edward Wiles</a> (Harvard)</span>
+                                <span class="item-description"><a href="https://tisharagarg.github.io/" target="_blank">Dr. Tishara Garg</a> (Stanford), <a href="https://www.edward-wiles.com/" target="_blank">Dr. Edward Wiles</a> (Harvard)</span>
                             </li>
                             <li class="bullet-list-item">
                                 <span class="bullet-list-text">Research Assistant</span>
@@ -312,27 +317,18 @@
                     </section>
 
                     <!-- ============================================
-                         PROFILES SECTION
-                         ============================================ -->
-                    <section>
-                        <h2>Profiles</h2>
-                        <ul class="bullet-list">
-                            <li class="bullet-list-item">
-                                <a href="https://github.com/dhruva36" target="_blank" class="bullet-list-link">GitHub</a>
-                            </li>
-                            <li class="bullet-list-item">
-                                <a href="https://linkedin.com/in/dhruvdev" target="_blank" class="bullet-list-link">LinkedIn</a>
-                            </li>
-                        </ul>
-                    </section>
-
-                    <!-- ============================================
-                         FOOTER - Contact info
+                         FOOTER - Links & Contact
                          ============================================ -->
                     <footer>
                         <ul class="bullet-list">
                             <li class="bullet-list-item">
                                 <a href="mailto:dhruvadevaraaj@gmail.com" class="bullet-list-link">dhruvadevaraaj@gmail.com</a>
+                            </li>
+                            <li class="bullet-list-item">
+                                <a href="https://github.com/dhruva36" target="_blank" class="bullet-list-link">GitHub</a>
+                            </li>
+                            <li class="bullet-list-item">
+                                <a href="https://linkedin.com/in/dhruvdev" target="_blank" class="bullet-list-link">LinkedIn</a>
                             </li>
                         </ul>
                     </footer>
