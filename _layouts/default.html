@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title and page.layout != 'default' %}{{ page.title }} — {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="description" content="{{ page.description | default: site.description | strip_html | truncatewords: 50 }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/main.css">
+    {% if page.layout == 'essay' %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true},{left: '$', right: '$', display: false}], throwOnError: false});"></script>
+    {% endif %}
+</head>
+<body>
+    <div class="page-wrapper">
+        {% include header.html %}
+
+        <main class="page-main">
+            {{ content }}
+        </main>
+    </div>
+
+    <script>
+        (function() {
+            function setColorMode(isDark, savePreference) {
+                if (savePreference === undefined) savePreference = true;
+                document.documentElement.classList.toggle('u-mode-invert', isDark);
+                var checkbox = document.getElementById('color-mode');
+                if (checkbox) {
+                    checkbox.checked = isDark;
+                }
+                if (savePreference) {
+                    localStorage.setItem('darkMode', isDark ? 'true' : 'false');
+                }
+            }
+
+            var savedMode = localStorage.getItem('darkMode');
+            var prefersDark;
+            var usingOSPreference = false;
+
+            if (savedMode !== null) {
+                prefersDark = savedMode === 'true';
+            } else {
+                var prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                prefersDark = prefersColorScheme.matches;
+                usingOSPreference = true;
+            }
+
+            setColorMode(prefersDark, !usingOSPreference);
+
+            window.addEventListener('DOMContentLoaded', function() {
+                var checkbox = document.getElementById('color-mode');
+                if (checkbox) {
+                    checkbox.checked = document.documentElement.classList.contains('u-mode-invert');
+                    checkbox.addEventListener('change', function() {
+                        usingOSPreference = false;
+                        setColorMode(this.checked);
+                    });
+                }
+
+                var prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)');
+                prefersColorScheme.addEventListener('change', function(e) {
+                    if (usingOSPreference) {
+                        setColorMode(e.matches, false);
+                    }
+                });
+            });
+        })();
+    </script>
+    {% if page.layout == 'essay' %}
+    <script>
+        // Active TOC highlighting
+        (function() {
+            window.addEventListener('DOMContentLoaded', function() {
+                var tocLinks = document.querySelectorAll('.essay-toc a');
+                if (!tocLinks.length) return;
+                var sections = [];
+                tocLinks.forEach(function(link) {
+                    var id = link.getAttribute('href').replace('#', '');
+                    var el = document.getElementById(id);
+                    if (el) sections.push({ el: el, link: link });
+                });
+                function onScroll() {
+                    var scrollPos = window.scrollY + 120;
+                    var active = sections[0];
+                    for (var i = 0; i < sections.length; i++) {
+                        if (sections[i].el.offsetTop <= scrollPos) {
+                            active = sections[i];
+                        }
+                    }
+                    tocLinks.forEach(function(l) { l.classList.remove('active'); });
+                    if (active) active.link.classList.add('active');
+                }
+                window.addEventListener('scroll', onScroll, { passive: true });
+                onScroll();
+            });
+        })();
+    </script>
+    {% endif %}
+</body>
+</html>

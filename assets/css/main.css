@@ -1,0 +1,594 @@
+/* ===========================================
+   BASE STYLES
+   =========================================== */
+
+:root {
+    --colors--text: #1a1a1a;
+    --colors--text-muted: #6b6b6b;
+    --colors--background: #fafaf8;
+    --colors--border: #e2e0dc;
+    --font-body: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+.u-mode-invert {
+    --colors--text: #e4e2de;
+    --colors--text-muted: #9a9890;
+    --colors--background: #161615;
+    --colors--border: #2c2b28;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 18px;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--colors--text);
+    background-color: var(--colors--background);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Link styles */
+a {
+    color: var(--colors--text);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.15em;
+    font-weight: 600;
+    transition: text-decoration-thickness 0.15s ease;
+}
+
+a:hover {
+    text-decoration-thickness: 2px;
+}
+
+::selection {
+    background-color: rgba(0, 100, 255, 0.2);
+    color: inherit;
+}
+
+.page-wrapper {
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 620px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ===========================================
+   HEADER
+   =========================================== */
+
+.header {
+    padding: 3.5rem 0 2.5rem;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-name-link {
+    text-decoration: none;
+}
+
+.header-name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--colors--text);
+    letter-spacing: -0.02em;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.header-nav-link {
+    font-size: 0.88rem;
+    color: var(--colors--text-muted);
+    text-decoration: none;
+    font-weight: 400;
+    transition: color 0.15s ease;
+}
+
+.header-nav-link:hover {
+    color: var(--colors--text);
+}
+
+/* Dark mode toggle */
+.toggle-switch {
+    position: relative;
+}
+
+.toggle-checkbox {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.toggle-label {
+    display: block;
+    width: 36px;
+    height: 18px;
+    background-color: var(--colors--text-muted);
+    border-radius: 18px;
+    cursor: pointer;
+    position: relative;
+    transition: background-color 0.3s ease;
+    opacity: 0.5;
+}
+
+.toggle-label:hover {
+    opacity: 0.8;
+}
+
+.toggle-label::before {
+    content: "";
+    position: absolute;
+    height: 14px;
+    width: 14px;
+    left: 2px;
+    bottom: 2px;
+    background-color: var(--colors--background);
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.toggle-checkbox:checked + .toggle-label::before {
+    transform: translateX(18px);
+}
+
+/* ===========================================
+   MAIN CONTENT
+   =========================================== */
+
+.page-main {
+    padding-bottom: 4rem;
+}
+
+/* Bio section */
+.bio-section p {
+    color: var(--colors--text);
+    line-height: 1.75;
+}
+
+/* Sections */
+section {
+    margin-top: 2.25rem;
+}
+
+section h2 {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--colors--text-muted);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Bullet list */
+.bullet-list {
+    list-style: none;
+}
+
+.bullet-list-item {
+    padding-left: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.bullet-list-item::before {
+    content: none;
+}
+
+.bullet-list-link {
+    /* Inherits bold + underline from base a styles */
+}
+
+.bullet-list-text {
+    font-weight: 600;
+}
+
+.bullet-list-meta {
+    color: var(--colors--text-muted);
+    margin-left: 0.4em;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+/* Item description (for experience items) */
+.item-description {
+    width: 100%;
+    color: var(--colors--text-muted);
+    font-size: 0.88rem;
+    margin-top: 0.1rem;
+    padding-left: 0;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* Skills section */
+.skills-text {
+    color: var(--colors--text-muted);
+    font-size: 0.95rem;
+}
+
+/* ===========================================
+   WRITINGS LIST (Homepage)
+   =========================================== */
+
+.writings-list {
+    list-style: none;
+}
+
+.writings-list-item {
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+}
+
+.writings-list-date {
+    color: var(--colors--text-muted);
+    margin-left: 0.4em;
+    font-size: 0.9em;
+    font-weight: 400;
+}
+
+/* ===========================================
+   ESSAY PAGE
+   =========================================== */
+
+/* Essay article: two-column layout on desktop */
+.essay-article {
+    position: relative;
+}
+
+/* Essay header */
+.essay-header {
+    margin-bottom: 2.5rem;
+}
+
+.essay-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+    margin-bottom: 0.5rem;
+}
+
+.essay-date {
+    font-size: 0.88rem;
+    color: var(--colors--text-muted);
+    font-weight: 400;
+}
+
+/* Table of contents — sticky left sidebar on desktop */
+.essay-toc {
+    display: none;
+}
+
+.essay-toc-title {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--colors--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.6rem;
+}
+
+.essay-toc ol {
+    margin: 0;
+    padding-left: 1.1rem;
+    line-height: 1.7;
+    list-style-type: none;
+}
+
+.essay-toc li {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.essay-toc a {
+    font-weight: 400;
+    color: var(--colors--text-muted);
+    text-decoration: none;
+}
+
+.essay-toc a:hover {
+    color: var(--colors--text);
+}
+
+/* Active TOC link (set via JS) */
+.essay-toc a.active {
+    color: var(--colors--text);
+    font-weight: 600;
+}
+
+@media (min-width: 1100px) {
+    .essay-toc {
+        display: block;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: max(1.5rem, calc((100vw - 620px) / 2 - 260px));
+        width: 200px;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    /* Hide scrollbar on TOC */
+    .essay-toc::-webkit-scrollbar {
+        display: none;
+    }
+    .essay-toc {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+}
+
+/* Essay body typography */
+.essay-body p {
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+}
+
+.essay-body h2 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+    text-transform: none;
+    color: var(--colors--text);
+}
+
+.essay-body h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--colors--text);
+}
+
+/* Blockquotes */
+.essay-body blockquote {
+    border-left: 2px solid var(--colors--border);
+    padding-left: 1.25rem;
+    margin: 1.5rem 0;
+    color: var(--colors--text-muted);
+    font-style: italic;
+}
+
+.essay-body blockquote p {
+    margin-bottom: 0.75rem;
+}
+
+.essay-body blockquote p:last-child {
+    margin-bottom: 0;
+}
+
+/* Lists inside essays */
+.essay-body ul,
+.essay-body ol {
+    margin: 1rem 0 1.25rem 1.5rem;
+    line-height: 1.8;
+}
+
+.essay-body li {
+    margin-bottom: 0.4rem;
+}
+
+/* Inline code */
+.essay-body code {
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+    font-size: 0.85em;
+    background-color: var(--colors--border);
+    padding: 0.15em 0.4em;
+    border-radius: 3px;
+}
+
+/* Code blocks */
+.essay-body pre {
+    background-color: var(--colors--border);
+    padding: 1rem 1.25rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    line-height: 1.5;
+}
+
+.essay-body pre code {
+    background: none;
+    padding: 0;
+    font-size: 0.85em;
+}
+
+/* Horizontal rule */
+.essay-body hr {
+    border: none;
+    border-top: 1px solid var(--colors--border);
+    margin: 2.5rem 0;
+}
+
+/* Footnote references (in-text) */
+.footnote-ref {
+    font-weight: 500;
+    text-decoration: none;
+    font-size: 0.75em;
+    vertical-align: super;
+    line-height: 0;
+    margin-left: 0.1em;
+}
+
+.footnote-ref:hover {
+    text-decoration: underline;
+}
+
+/* Footnotes section */
+.essay-footnotes {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--colors--border);
+}
+
+.essay-footnotes-title {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--colors--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+}
+
+.essay-footnotes ol {
+    padding-left: 1.25rem;
+    font-size: 0.88rem;
+    color: var(--colors--text-muted);
+    line-height: 1.7;
+}
+
+.essay-footnotes li {
+    margin-bottom: 0.5rem;
+}
+
+.essay-footnotes li:target {
+    color: var(--colors--text);
+}
+
+.footnote-backref {
+    text-decoration: none;
+    font-weight: 400;
+    margin-left: 0.3em;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+
+footer {
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    padding-bottom: 2.5rem;
+    border-top: 1px solid var(--colors--border);
+}
+
+footer .bullet-list-item {
+    color: var(--colors--text-muted);
+}
+
+footer .bullet-list-link {
+    color: var(--colors--text-muted);
+    font-weight: 400;
+}
+
+footer .bullet-list-link:hover {
+    color: var(--colors--text);
+}
+
+/* ===========================================
+   FIGURES (light/dark mode switching)
+   =========================================== */
+
+.figure {
+    margin: 2rem 0;
+}
+
+.figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.figure-caption {
+    font-size: 0.82rem;
+    color: var(--colors--text-muted);
+    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+.figure .light-only {
+    display: block;
+}
+
+.figure .dark-only {
+    display: none;
+}
+
+.u-mode-invert .figure .light-only {
+    display: none;
+}
+
+.u-mode-invert .figure .dark-only {
+    display: block;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+
+@media (max-width: 600px) {
+    html {
+        font-size: 16px;
+    }
+
+    .header {
+        padding: 2.5rem 0 2rem;
+    }
+
+    .essay-title {
+        font-size: 1.5rem;
+    }
+}
+
+/* Essay tables (for results) */
+.essay-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.6;
+}
+
+.essay-body th,
+.essay-body td {
+    padding: 0.4rem 0.6rem;
+    text-align: right;
+    border-bottom: 1px solid var(--colors--border);
+}
+
+.essay-body th {
+    font-weight: 600;
+    font-size: 0.82rem;
+}
+
+.essay-body th:first-child,
+.essay-body td:first-child {
+    text-align: left;
+}
+
+.essay-body thead tr {
+    border-bottom: 2px solid var(--colors--border);
+}
+
+.essay-body em {
+    font-style: italic;
+}

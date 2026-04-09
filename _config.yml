@@ -1,0 +1,17 @@
+title: Dhruva Devaraaj
+description: >-
+  Dhruva Devaraaj — economics, econometrics, and the things I find interesting.
+url: "https://dhruva36.github.io"
+baseurl: ""
+
+collections:
+  writings:
+    output: true
+    permalink: /writings/:slug/
+
+defaults:
+  - scope:
+      path: ""
+      type: "writings"
+    values:
+      layout: "essay"

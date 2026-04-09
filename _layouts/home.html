@@ -1,0 +1,53 @@
+---
+layout: default
+---
+
+<article>
+    <div class="container">
+        <!-- Bio -->
+        <section class="bio-section">
+            {{ content }}
+        </section>
+
+        <!-- Musings -->
+        <section id="musings">
+            <h2>Musings</h2>
+            {% assign published_writings = site.writings | where: "published", true %}
+            {% if published_writings.size > 0 %}
+            <ul class="writings-list">
+                {% assign sorted_writings = published_writings | sort: 'date' | reverse %}
+                {% for writing in sorted_writings %}
+                <li class="writings-list-item">
+                    <a href="{{ writing.url }}">{{ writing.title }}</a>
+                    <span class="writings-list-date">({{ writing.date | date: "%B %Y" }})</span>
+                </li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p class="skills-text">Something is brewing. Check back soon.</p>
+            {% endif %}
+        </section>
+
+        <!-- Experience -->
+        <section>
+            <h2>Experience</h2>
+            <ul class="bullet-list">
+                {% for item in page.experience %}
+                <li class="bullet-list-item">
+                    <span class="bullet-list-text">{{ item.role }}</span>
+                    <span class="bullet-list-meta">({{ item.dates }})</span>
+                    <span class="item-description">{{ item.description }}</span>
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2>Skills</h2>
+            <p class="skills-text">{{ page.skills | join: ", " }}</p>
+        </section>
+
+        {% include footer.html %}
+    </div>
+</article>

@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<article class="essay-article">
+    {% if page.toc %}
+    <nav class="essay-toc">
+        <p class="essay-toc-title">Contents</p>
+        <ol>
+            {% for item in page.toc %}
+            <li><a href="#{{ item.id }}">{{ item.title }}</a></li>
+            {% endfor %}
+        </ol>
+    </nav>
+    {% endif %}
+
+    <div class="container">
+        <div class="essay-header">
+            <h2 class="essay-title">{{ page.title }}</h2>
+            <p class="essay-date">{{ page.date | date: "%B %Y" }}</p>
+        </div>
+
+        <div class="essay-body">
+            {{ content }}
+        </div>
+
+        {% if page.footnotes %}
+        <aside class="essay-footnotes">
+            <p class="essay-footnotes-title">Notes</p>
+            <ol>
+                {% for note in page.footnotes %}
+                <li id="fn-{{ forloop.index }}">{{ note }} <a href="#fnref-{{ forloop.index }}" class="footnote-backref" aria-label="Back to content">&#8617;</a></li>
+                {% endfor %}
+            </ol>
+        </aside>
+        {% endif %}
+
+        {% include footer.html %}
+    </div>
+</article>
