@@ -4,8 +4,8 @@ description: "Dhruva Devaraaj — economics, econometrics, and the things I find
 
 experience:
   - role: Research Assistant
-    dates: "Nov 2025–Present"
-    description: '<a href="https://tisharagarg.github.io/" target="_blank">Dr. Tishara Garg</a> (Stanford), <a href="https://www.edward-wiles.com/" target="_blank">Dr. Edward Wiles</a> (Harvard)'
+    dates: "Nov 2025–Apr 2026"
+    description: '<a href="https://tisharagarg.github.io/" target="_blank">Dr. Tishara Garg</a> (<a href="https://www.stanford.edu/" target="_blank">Stanford</a>), <a href="https://www.edward-wiles.com/" target="_blank">Dr. Edward Wiles</a> (<a href="https://www.harvard.edu/" target="_blank">Harvard</a>)'
   - role: Research Assistant
     dates: "Sep 2025–Present"
     description: '<a href="https://allard.ubc.ca/about-us/our-people/wei-cui" target="_blank">Dr. Wei Cui</a> (<a href="https://allard.ubc.ca/" target="_blank">Allard School of Law</a>)'
