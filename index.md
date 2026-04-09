@@ -35,7 +35,7 @@ skills:
 education:
   - school: University of British Columbia
     dates: "Aug 2022–May 2027"
-    degree: "BA in Honours Economics, Concentrations in Math and Computer Science"
+    degree: "BA in Honours Economics, Concentrations in Math and Computer Science — Dean's Scholar"
 ---
 
 I am a student of economics. I often spend time learning about things I find interesting which most of time right now is about the economics of AI and inequality. I'm also curious about the theoretical aspects of developing these models specifically the idea of World Models as a substitute to Large Language Models, the relevance of the scaling laws and in general understanding the movement to achieve AGI. I also love teaching, I'd like to think that I am good at it, [click here](https://www.dropbox.com/scl/fi/itsfoirl2nppztparq538/TA-Reviews.pdf?rlkey=i6fc8z3bnioh7m0xzg50se5cb&st=ywmax8ip&dl=0) to read all the nice things my classes have had to say.
