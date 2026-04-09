@@ -42,12 +42,6 @@ layout: default
             </ul>
         </section>
 
-        <!-- Skills -->
-        <section>
-            <h2>Skills</h2>
-            <p class="skills-text">{{ page.skills | join: ", " }}</p>
-        </section>
-
         <!-- Education -->
         <section>
             <h2>Education</h2>
@@ -63,6 +57,12 @@ layout: default
                 </li>
                 {% endfor %}
             </ul>
+        </section>
+
+        <!-- Skills -->
+        <section>
+            <h2>Skills</h2>
+            <p class="skills-text">{{ page.skills | join: ", " }}</p>
         </section>
 
         {% include footer.html %}
