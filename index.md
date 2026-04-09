@@ -12,7 +12,7 @@ experience:
   - role: Research Assistant
     dates: "Jun 2025–Oct 2025"
     description: '<a href="https://sites.google.com/view/ekaterinakhmelnitskaya/home" target="_blank">Dr. Ekaterina Khmelnitskaya</a> (<a href="https://www.sauder.ubc.ca/" target="_blank">Sauder School of Business</a>)'
-  - role: Senior Research Assistant
+  - role: Research Assistant
     dates: "May 2025–Aug 2025"
     description: '<a href="https://economics.ubc.ca/profile/michael-peters/" target="_blank">Dr. Michael Peters</a> (<a href="https://economics.ubc.ca/" target="_blank">Vancouver School of Economics</a>)'
   - role: Mathematics Teaching Assistant
