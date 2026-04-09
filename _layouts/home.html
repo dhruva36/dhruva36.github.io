@@ -48,6 +48,23 @@ layout: default
             <p class="skills-text">{{ page.skills | join: ", " }}</p>
         </section>
 
+        <!-- Education -->
+        <section>
+            <h2>Education</h2>
+            <ul class="bullet-list">
+                {% for item in page.education %}
+                <li class="bullet-list-item">
+                    <span class="bullet-list-text">{{ item.school }}</span>
+                    <span class="bullet-list-meta">({{ item.dates }})</span>
+                    <span class="item-description">{{ item.degree }}</span>
+                    {% if item.details %}
+                    <span class="item-description">{{ item.details }}</span>
+                    {% endif %}
+                </li>
+                {% endfor %}
+            </ul>
+        </section>
+
         {% include footer.html %}
     </div>
 </article>
