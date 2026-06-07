@@ -9,25 +9,6 @@ layout: default
             {{ content }}
         </section>
 
-        <!-- Musings -->
-        <section id="musings">
-            <h2>Musings</h2>
-            {% assign published_writings = site.writings | where: "published", true %}
-            {% if published_writings.size > 0 %}
-            <ul class="writings-list">
-                {% assign sorted_writings = published_writings | sort: 'date' | reverse %}
-                {% for writing in sorted_writings %}
-                <li class="writings-list-item">
-                    <a href="{{ writing.url }}">{{ writing.title }}</a>
-                    <span class="writings-list-date">({{ writing.date | date: "%B %Y" }})</span>
-                </li>
-                {% endfor %}
-            </ul>
-            {% else %}
-            <p class="skills-text">Something is brewing. Check back soon.</p>
-            {% endif %}
-        </section>
-
         <!-- Experience -->
         <section>
             <h2>Experience</h2>

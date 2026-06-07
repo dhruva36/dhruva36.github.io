@@ -1,0 +1,49 @@
+---
+layout: default
+title: Hiking
+description: "Dhruva Devaraaj — an avid hiker. Photos from memorable trails around Vancouver and the Sea-to-Sky corridor."
+permalink: /hiking/
+hikes:
+  - image: /images/chief.jpeg
+    name: The Stawamus Chief
+    location: Squamish
+  - image: /images/elfin1.jpeg
+    name: Elfin Lakes
+    location: Garibaldi Provincial Park
+  - image: /images/elfin2.jpeg
+    name: Elfin Lakes
+    location: Garibaldi Provincial Park
+  - image: /images/goat_ridge.JPG
+    name: Goat Ridge
+    location: Chilliwack
+  - image: /images/goat_ridge2.jpeg
+    name: Goat Ridge
+    location: Chilliwack
+  - image: /images/tunnelBluffs.jpeg
+    name: Tunnel Bluffs
+    location: Howe Sound
+---
+
+<article>
+    <div class="container">
+        <section class="bio-section">
+            <h2>Hiking</h2>
+            <p>When I'm not buried in economics, I'm out on a trail. I'm an avid hiker, and
+            the mountains around Vancouver and the Sea-to-Sky corridor have given me some of
+            my most memorable days. A few beautiful clicks from those hikes are below.</p>
+        </section>
+
+        <section>
+            <div class="photo-gallery">
+                {% for hike in page.hikes %}
+                <figure class="photo-item">
+                    <img src="{{ hike.image }}" alt="{{ hike.name }}, {{ hike.location }}" loading="lazy">
+                    <figcaption>{{ hike.name }}<span class="photo-location"> · {{ hike.location }}</span></figcaption>
+                </figure>
+                {% endfor %}
+            </div>
+        </section>
+
+        {% include footer.html %}
+    </div>
+</article>
