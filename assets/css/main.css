@@ -547,18 +547,23 @@ footer .bullet-list-link:hover {
 
 .scrapbook {
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
-    gap: 1.75rem 1.5rem;
+    gap: 1rem;
     padding: 0.5rem 0 1rem;
+    /* Break out of the narrow text column so all four prints have room */
+    width: min(880px, 94vw);
+    margin-left: 50%;
+    transform: translateX(-50%);
 }
 
 .polaroid {
     margin: 0;
-    width: calc(50% - 0.75rem);
+    flex: 1 1 0;
+    min-width: 0;
     background: #fdfdfb;
-    padding: 0.7rem 0.7rem 0.3rem;
+    padding: 0.55rem 0.55rem 0.25rem;
     border-radius: 2px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.14);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
@@ -566,9 +571,9 @@ footer .bullet-list-link:hover {
 }
 
 /* Organic alternating tilt */
-.polaroid:nth-child(4n+1) { transform: rotate(-2.5deg); }
+.polaroid:nth-child(4n+1) { transform: rotate(-2deg); }
 .polaroid:nth-child(4n+2) { transform: rotate(1.5deg); }
-.polaroid:nth-child(4n+3) { transform: rotate(-1deg); }
+.polaroid:nth-child(4n+3) { transform: rotate(-1.5deg); }
 .polaroid:nth-child(4n)   { transform: rotate(2deg); }
 
 .polaroid:hover,
@@ -595,11 +600,11 @@ footer .bullet-list-link:hover {
 
 .polaroid figcaption {
     font-family: 'Caveat', 'Source Serif 4', cursive;
-    font-size: 1.25rem;
-    line-height: 1.2;
+    font-size: 1.05rem;
+    line-height: 1.15;
     text-align: center;
     color: #3a3a3a;
-    padding: 0.55rem 0.2rem 0.35rem;
+    padding: 0.4rem 0.15rem 0.3rem;
 }
 
 .polaroid-loc {
@@ -681,8 +686,16 @@ footer .bullet-list-link:hover {
         font-size: 1.5rem;
     }
 
+    .scrapbook {
+        flex-wrap: wrap;
+        width: auto;
+        margin-left: 0;
+        transform: none;
+        gap: 1.25rem;
+    }
+
     .polaroid {
-        width: 78%;
+        flex: 0 0 44%;
     }
 }
 
