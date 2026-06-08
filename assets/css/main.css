@@ -542,35 +542,126 @@ footer .bullet-list-link:hover {
 }
 
 /* ===========================================
-   PHOTO GALLERY (Hiking page)
+   SCRAPBOOK (Hiking page) — polaroid prints
    =========================================== */
 
-.photo-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
-    gap: 1.5rem;
+.scrapbook {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1.75rem 1.5rem;
+    padding: 0.5rem 0 1rem;
 }
 
-.photo-item {
+.polaroid {
     margin: 0;
+    width: calc(50% - 0.75rem);
+    background: #fdfdfb;
+    padding: 0.7rem 0.7rem 0.3rem;
+    border-radius: 2px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22), 0 1px 3px rgba(0, 0, 0, 0.14);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    will-change: transform;
 }
 
-.photo-item img {
+/* Organic alternating tilt */
+.polaroid:nth-child(4n+1) { transform: rotate(-2.5deg); }
+.polaroid:nth-child(4n+2) { transform: rotate(1.5deg); }
+.polaroid:nth-child(4n+3) { transform: rotate(-1deg); }
+.polaroid:nth-child(4n)   { transform: rotate(2deg); }
+
+.polaroid:hover,
+.polaroid:focus-within {
+    transform: rotate(0deg) scale(1.03);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28), 0 2px 6px rgba(0, 0, 0, 0.16);
+    z-index: 2;
+}
+
+.polaroid-trigger {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: zoom-in;
+}
+
+.polaroid-trigger img {
     width: 100%;
     height: auto;
-    border-radius: 4px;
     display: block;
 }
 
-.photo-item figcaption {
-    font-size: 0.82rem;
-    color: var(--colors--text-muted);
-    margin-top: 0.5rem;
-    line-height: 1.5;
+.polaroid figcaption {
+    font-family: 'Caveat', 'Source Serif 4', cursive;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    text-align: center;
+    color: #3a3a3a;
+    padding: 0.55rem 0.2rem 0.35rem;
 }
 
-.photo-location {
-    font-weight: 400;
+.polaroid-loc {
+    color: #7a7a7a;
+}
+
+/* ===========================================
+   LIGHTBOX
+   =========================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 2rem;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: zoom-out;
+}
+
+.lightbox[hidden] {
+    display: none;
+}
+
+.lightbox-img {
+    max-width: 92vw;
+    max-height: 84vh;
+    object-fit: contain;
+    border-radius: 2px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-caption {
+    font-family: 'Caveat', 'Source Serif 4', cursive;
+    font-size: 1.4rem;
+    color: #f2f1ed;
+    text-align: center;
+    margin: 0;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: none;
+    background: none;
+    color: #f2f1ed;
+    font-size: 2rem;
+    line-height: 1;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.15s ease;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
 }
 
 /* ===========================================
@@ -588,6 +679,10 @@ footer .bullet-list-link:hover {
 
     .essay-title {
         font-size: 1.5rem;
+    }
+
+    .polaroid {
+        width: 78%;
     }
 }
 

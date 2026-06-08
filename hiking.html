@@ -3,6 +3,7 @@ layout: default
 title: Hiking
 description: "Dhruva Devaraaj — an avid hiker. Photos from memorable trails around Vancouver and the Sea-to-Sky corridor."
 permalink: /hiking/
+handwriting: true
 hikes:
   - image: /images/chief.jpeg
     name: The Stawamus Chief
@@ -34,11 +35,15 @@ hikes:
         </section>
 
         <section>
-            <div class="photo-gallery">
+            <div class="scrapbook">
                 {% for hike in page.hikes %}
-                <figure class="photo-item">
-                    <img src="{{ hike.image }}" alt="{{ hike.name }}, {{ hike.location }}" loading="lazy">
-                    <figcaption>{{ hike.name }}<span class="photo-location"> · {{ hike.location }}</span></figcaption>
+                <figure class="polaroid">
+                    <button class="polaroid-trigger" type="button"
+                            data-full="{{ hike.image }}"
+                            data-caption="{{ hike.name }} · {{ hike.location }}">
+                        <img src="{{ hike.image }}" alt="{{ hike.name }}, {{ hike.location }}" loading="lazy">
+                    </button>
+                    <figcaption>{{ hike.name }}<span class="polaroid-loc"> · {{ hike.location }}</span></figcaption>
                 </figure>
                 {% endfor %}
             </div>
@@ -47,3 +52,42 @@ hikes:
         {% include footer.html %}
     </div>
 </article>
+
+<div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-close" type="button" aria-label="Close">&times;</button>
+    <img class="lightbox-img" src="" alt="">
+    <p class="lightbox-caption"></p>
+</div>
+
+<script>
+    (function () {
+        var lb = document.getElementById('lightbox');
+        if (!lb) return;
+        var lbImg = lb.querySelector('.lightbox-img');
+        var lbCap = lb.querySelector('.lightbox-caption');
+
+        function open(trigger) {
+            var img = trigger.querySelector('img');
+            lbImg.src = trigger.getAttribute('data-full');
+            lbImg.alt = img ? img.alt : '';
+            lbCap.textContent = trigger.getAttribute('data-caption') || '';
+            lb.hidden = false;
+            document.body.style.overflow = 'hidden';
+        }
+
+        function close() {
+            lb.hidden = true;
+            lbImg.src = '';
+            document.body.style.overflow = '';
+        }
+
+        document.querySelectorAll('.polaroid-trigger').forEach(function (trigger) {
+            trigger.addEventListener('click', function () { open(trigger); });
+        });
+
+        lb.addEventListener('click', close);
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && !lb.hidden) close();
+        });
+    })();
+</script>
