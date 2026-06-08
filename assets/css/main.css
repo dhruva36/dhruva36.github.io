@@ -513,6 +513,13 @@ footer .bullet-list-link:hover {
     color: var(--colors--text);
 }
 
+.footer-name {
+    margin-top: 1rem;
+    color: var(--colors--text-muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+}
+
 /* ===========================================
    FIGURES (light/dark mode switching)
    =========================================== */

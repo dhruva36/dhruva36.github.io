@@ -7,6 +7,14 @@ baseurl: ""
 # Replace with the real path to your CV once you add the file (e.g. /assets/cv.pdf)
 cv_url: "/assets/cv.pdf"
 
+# Default social / search preview image (absolute path under the site)
+og_image: "/images/chief.jpeg"
+
+# Search-engine verification — paste the codes from Google Search Console and Bing
+# Webmaster Tools here, then redeploy. Leave blank to omit the tags entirely.
+google_site_verification: ""
+bing_site_verification: ""
+
 plugins:
   - jekyll-sitemap
 
