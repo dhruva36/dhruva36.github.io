@@ -4,6 +4,12 @@ description: >-
 url: "https://dhruva36.github.io"
 baseurl: ""
 
+# Replace with the real path to your CV once you add the file (e.g. /assets/cv.pdf)
+cv_url: "/assets/cv.pdf"
+
+plugins:
+  - jekyll-sitemap
+
 collections:
   writings:
     output: true
