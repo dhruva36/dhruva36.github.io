@@ -9,17 +9,17 @@ I am a student of economics at the University of British Columbia, at the Vancou
     <h2>Projects</h2>
     <ul class="bullet-list">
         <li class="bullet-list-item">
+            <span class="bullet-list-text">Tamil Nadu Elections Dashboard</span>
+            <span class="item-description">
+                I grew up watching Tamil Nadu politics, and I always wanted to be able to understand how people vote — even more so after a man I had long admired became our leader. So I built a dashboard that pulls together public affidavit data, election results, and census figures for the Assembly elections, documenting candidate wealth, criminal records, party trends, and constituency-level demographics across all 234 seats.
+                <a href="https://web-eight-mu-30.vercel.app" class="bullet-list-link">View the dashboard &rarr;</a>
+            </span>
+        </li>
+        <li class="bullet-list-item">
             <span class="bullet-list-text">Sensei</span>
             <span class="item-description">
                 We've all been there — on that trip where splitting the bills gets messy and there are about a million different transfers everyone needs to make. I wanted to make things simpler, so I built Sensei: it takes everyone's expenses and uses a greedy search algorithm to settle up with the fewest transfers possible.
                 <a href="https://sensei-nine-omega.vercel.app" class="bullet-list-link">Try Sensei &rarr;</a>
-            </span>
-        </li>
-        <li class="bullet-list-item">
-            <span class="bullet-list-text">Tamil Nadu Elections Dashboard</span>
-            <span class="item-description">
-                I grew up watching Tamil Nadu politics, and I always wished I could actually see the numbers behind the noise. So I built a dashboard that pulls together public affidavit data, election results, and census figures for the 2021 and 2026 Assembly elections — letting you explore candidate wealth, criminal records, party trends, and constituency-level demographics across all 234 seats on an interactive map.
-                <a href="https://web-eight-mu-30.vercel.app" class="bullet-list-link">View the dashboard &rarr;</a>
             </span>
         </li>
     </ul>
