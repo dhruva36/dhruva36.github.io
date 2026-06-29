@@ -15,5 +15,12 @@ I am a student of economics at the University of British Columbia, at the Vancou
                 <a href="https://sensei-nine-omega.vercel.app" class="bullet-list-link">Try Sensei &rarr;</a>
             </span>
         </li>
+        <li class="bullet-list-item">
+            <span class="bullet-list-text">Tamil Nadu Elections Dashboard</span>
+            <span class="item-description">
+                I grew up watching Tamil Nadu politics, and I always wished I could actually see the numbers behind the noise. So I built a dashboard that pulls together public affidavit data, election results, and census figures for the 2021 and 2026 Assembly elections — letting you explore candidate wealth, criminal records, party trends, and constituency-level demographics across all 234 seats on an interactive map.
+                <a href="https://web-eight-mu-30.vercel.app" class="bullet-list-link">View the dashboard &rarr;</a>
+            </span>
+        </li>
     </ul>
 </section>
