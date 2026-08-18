@@ -4,8 +4,8 @@ description: >-
 url: "https://dhruva36.github.io"
 baseurl: ""
 
-# Replace with the real path to your CV once you add the file (e.g. /assets/cv.pdf)
-cv_url: "/assets/cv.pdf"
+# Link to CV (Dropbox)
+cv_url: "https://www.dropbox.com/scl/fi/wmy15g2gwu3cu8u8p47ug/Devaraaj_Dhruva_CV.pdf?rlkey=0fh510uho9rudbzzat3akqj89&st=7hi5w8wk&dl=0"
 
 # Default social / search preview image (absolute path under the site)
 og_image: "/images/chief.jpeg"
