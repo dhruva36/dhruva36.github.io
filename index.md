@@ -3,7 +3,7 @@ layout: home
 description: "Dhruva Devaraaj — economics, econometrics, and the things I find interesting."
 ---
 
-I am a student of economics at the University of British Columbia, at the Vancouver School of Economics. I often spend time learning about things I find interesting, which right now is mostly trying to understand development — how it happens, who it leaves behind — through labour and political economy, using history as a tool. I'm also curious about the theoretical side of AI, the relevance of the scaling laws and in general understanding the movement to achieve AGI. I also love teaching, I'd like to think that I am good at it, [click here](https://www.dropbox.com/scl/fi/itsfoirl2nppztparq538/TA-Reviews.pdf?rlkey=i6fc8z3bnioh7m0xzg50se5cb&st=ywmax8ip&dl=0) to read all the nice things my classes have had to say. And [click here]({{ site.cv_url }}) to view my CV.
+I am a student of economics at the University of British Columbia, at the Vancouver School of Economics. I often spend time learning about things I find interesting, which for a long while now has been mostly trying to understand development — how it happens, who it leaves behind — through labour and political economy, using history as a tool. I’m also curious about the theoretical side of AI, the relevance of the scaling laws and in general understanding the movement to achieve AGI. I also love teaching, I’d like to think that I am good at it, [click here](https://www.dropbox.com/scl/fi/itsfoirl2nppztparq538/TA-Reviews.pdf?rlkey=i6fc8z3bnioh7m0xzg50se5cb&st=ywmax8ip&dl=0) to read all the nice things my classes have had to say. And [click here]({{ site.cv_url }}) to view my CV.
 
 <section>
     <h2>Projects</h2>
