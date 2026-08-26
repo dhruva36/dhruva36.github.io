@@ -4,8 +4,8 @@ description: >-
 url: "https://dhruva36.github.io"
 baseurl: ""
 
-# Link to CV (Dropbox)
-cv_url: "https://www.dropbox.com/scl/fi/wmy15g2gwu3cu8u8p47ug/Devaraaj_Dhruva_CV.pdf?rlkey=0fh510uho9rudbzzat3akqj89&st=7hi5w8wk&dl=0"
+# Link to CV (PDF lives in this repo at assets/)
+cv_url: "/assets/Devaraaj_Dhruva_CV.pdf"
 
 # Default social / search preview image (absolute path under the site)
 og_image: "/images/chief.jpeg"
