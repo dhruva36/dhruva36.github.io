@@ -4,7 +4,7 @@ body{margin:0;background:#fdfdfb;color:#1a1a1a;font-family:'Computer Modern Seri
 .page{max-width:600px;margin:0 auto;padding:96px 24px 80px}
 a{color:#1a1a1a;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:3px}
 a:hover{color:#666}
-p{margin:0 0 1em;text-wrap:pretty}
+p{margin:0 0 1em;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
 code,pre{font-family:'Computer Modern Typewriter',monospace}
 img{max-width:100%;height:auto;display:block}
 
@@ -23,3 +23,5 @@ img{max-width:100%;height:auto;display:block}
 .hike img{width:100%;height:auto;display:block}
 .hike figcaption{font-size:16px;text-align:center}
 
+
+@media (max-width:480px){p{text-align:left}}
